@@ -1,0 +1,54 @@
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('admin.index') }}">{{ current_user.username }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('main.index') }}">Home</a>
+            </li>
+
+            {% if not current_user.is_authenticated %} 
+
+              <li class="nav-item">
+                <a href="{{ url_for('auth.login') }}" class="nav-link">Login</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url_for('auth.signup') }}" class="nav-link">Signup</a>
+              </li>
+
+            {% endif %}
+
+            {% if current_user.is_authenticated %}
+
+              <li class="nav-item">
+
+                <div class="dropdown">
+                  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Settings
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="nav-link" style="color: black;" href="{{ url_for('user.profile') }}">Profile</a></li>
+                    <li><a class="nav-link" style="color: black;" href="{{ url_for('admin.settings') }}">Configuration</a></li>
+                    <li><a class="nav-link" style="color: black;" href="{{ url_for('admin.index') }}">Admin Panel</a></li>
+                  </ul>
+                </div>
+              
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+              </li>
+
+            {% endif %}
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+{% endblock %}

@@ -1,0 +1,8 @@
+python-dotenv
+python-json-logger
+requests
+flask
+flask-login
+sqlalchemy
+flask-cors
+gunicorn
