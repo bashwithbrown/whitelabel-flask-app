@@ -24,7 +24,7 @@ The **Whitelabel Flask App** is a simple application built using Flask. It suppo
 1. **Clone the repository:**
 
    ```bash
-   git clone git@github.com:dandyDev-1/chat-app.git
+   git clone git@github.com:bashwithbrown/whitwlabel-flask-app.git
    cd chat-app
    ```
 
